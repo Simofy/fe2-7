@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.test {
+  font-size: 48px;
+}
+
+.recursive-box {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-radius: 50%; */
+}
+
+.recursive-container {
+  width: 400px;
+  height: 400px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
