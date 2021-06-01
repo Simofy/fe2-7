@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import RecursiveBox from "./components/lesson-1/components/RecursiveBox";
+import RecursiveBox from "./lesson-1/components/RecursiveBox";
 
 class App extends React.Component {
   state = {
