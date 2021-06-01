@@ -3,7 +3,7 @@ import data1 from "./data1.json";
 
 export class SlangOther extends React.Component {
   render() {
-    // console.log(this.props);
+    console.log(this.props)
     return this.props.other.join(", ");
   }
 }
@@ -28,7 +28,7 @@ export class Slang extends React.Component {
       test2: false,
       namas,
     };
-    // console.log(test);
+    console.log(test);
 
     return (
       <div>
@@ -45,50 +45,16 @@ export class Slang extends React.Component {
   }
 }
 
-class ListItem extends React.Component {
-  render() {
-    const { name, price } = this.props;
-    return (
-      <div>
-        <strong>{name}</strong>
-        <span>{price}</span>
-      </div>
-    );
-  }
-}
-
 export default class Lesson2 extends React.Component {
-  state = {
-    data: [],
-  };
-  componentDidMount() {
-    fetch("https://simutis.dev/api/generate-shopping-cart?limit=10")
-      .then((response) => response.json())
-      .then((data) =>
-        this.setState({
-          data,
-        })
-      );
-  }
   render() {
-    const { data } = this.state;
-    console.log("Lesson2 Component", data);
     const dummyArray = [10, 11, 1, 5, 6];
     if (!Array.isArray(dummyArray)) {
       return null;
     }
+    const testing = '12345';
     return (
       <>
-        {data.map(({ name, price, id }) => (
-          <ListItem key={id} name={name} price={price} />
-        ))}
-        {/* <Slang
-          data={data1}
-          testing
-          dummyArray={dummyArray}
-          test={1}
-          test2="alio"
-        /> */}
+        <Slang data={data1} testing dummyArray={dummyArray} test={1} test2="alio" />
       </>
       // <div>{this.props.show ? "Show" : <Loading show={dummyArray} />}</div>
     );
