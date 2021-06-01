@@ -67,4 +67,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.container > div {
+  width: 100%;
+  min-height: 100px;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container > div > strong::after {
+  content: ': ';
+}
+
+.container > div > strong {
+  margin-right: 4px;
 }

@@ -51,7 +51,7 @@ class ListItem extends React.Component {
     return (
       <div>
         <strong>{name}</strong>
-        <span>{price}</span>
+        <span>{price.toFixed(2)}$</span>
       </div>
     );
   }
