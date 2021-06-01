@@ -1,0 +1,62 @@
+[
+  {
+    "id": "Wr49QUN7e",
+    "name": "Tarfful",
+    "price": 58.31170451772918,
+    "vegan": false
+  },
+  {
+    "id": "z5cgfUFBY7",
+    "name": "Sly Moore",
+    "price": 95.00552347850034,
+    "vegan": true
+  },
+  {
+    "id": "fn95sPzabs",
+    "name": "Watto",
+    "price": 2.644403287970243,
+    "vegan": false
+  },
+  {
+    "id": "_6TfkiMvS6",
+    "name": "Kit Fisto",
+    "price": 58.957579085650224,
+    "vegan": false
+  },
+  {
+    "id": "LbVmhx0xA4",
+    "name": "R5-D4",
+    "price": 53.88836263829304,
+    "vegan": false
+  },
+  {
+    "id": "lQuqCFLioE",
+    "name": "Poggle the Lesser",
+    "price": 6.629068338987021,
+    "vegan": false
+  },
+  {
+    "id": "4-Z83GLp0q",
+    "name": "R2-D2",
+    "price": 46.33645787947023,
+    "vegan": true
+  },
+  {
+    "id": "oby6xKsHRl",
+    "name": "Adi Gallia",
+    "price": 14.436831930651861,
+    "vegan": false
+  },
+  {
+    "id": "sbA3gZWlbP",
+    "name": "Saesee Tiin",
+    "price": 74.72535766426864,
+    "vegan": false
+  },
+  {
+    "id": "c5N3sW0GrT",
+    "name": "Padmé Amidala",
+    "price": 15.934987643395937,
+    "vegan": true
+  }
+]

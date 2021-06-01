@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import RecursiveBox from "./lesson-1/components/RecursiveBox";
+import Lesson2 from "./lesson-2";
 
 class App extends React.Component {
   state = {
@@ -12,7 +12,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <div className="recursive-container">
-            <RecursiveBox depth={0} size={30} />
+            <Lesson2 />
           </div>
           <button
             type="button"
