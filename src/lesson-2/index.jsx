@@ -47,9 +47,13 @@ export class Slang extends React.Component {
 
 class ListItem extends React.Component {
   render() {
-    const { name, price } = this.props;
+    const { name, price, vegan } = this.props;
     return (
-      <div>
+      <div className={`${vegan ? 'super-duper-spalva' : 'meh-spalva'}`} 
+      // style={{
+      //   backgroundColor: vegan ? '#faf' : 'red'
+      // }}
+      >
         <strong>{name}</strong>
         <span>{price.toFixed(2)}$</span>
       </div>
@@ -72,15 +76,15 @@ export default class Lesson2 extends React.Component {
   }
   render() {
     const { data } = this.state;
-    console.log("Lesson2 Component", data);
-    const dummyArray = [10, 11, 1, 5, 6];
-    if (!Array.isArray(dummyArray)) {
-      return null;
-    }
+    // console.log("Lesson2 Component", data);
+    // const dummyArray = [10, 11, 1, 5, 6];
+    // if (!Array.isArray(dummyArray)) {
+    //   return null;
+    // }
     return (
       <>
-        {data.map(({ name, price, id }) => (
-          <ListItem key={id} name={name} price={price} />
+        {data.map(({ name, price, vegan, id }) => (
+          <ListItem key={id} vegan={vegan} name={name} price={price} />
         ))}
         {/* <Slang
           data={data1}

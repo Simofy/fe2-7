@@ -89,3 +89,11 @@
 .container > div > strong {
   margin-right: 4px;
 }
+
+.super-duper-spalva {
+  background-color: #faf;
+}
+
+.meh-spalva {
+  background-color: darkgoldenrod;
+}

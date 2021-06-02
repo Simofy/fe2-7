@@ -9,3 +9,7 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+React.Component.prototype.componentDidUpdate = function() {
+  console.log(this.constructor.name)
+}
