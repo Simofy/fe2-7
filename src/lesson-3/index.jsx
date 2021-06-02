@@ -1,4 +1,6 @@
 import React from "react";
+import Collapse from "./Collapse";
+import List from "./List";
 
 export default class SumComponent extends React.Component {
   // shouldComponentUpdate(newProps, newState) {
@@ -34,9 +36,10 @@ export default class SumComponent extends React.Component {
   render() {
     // console.log(this.props.children)
     return (
-      <button onClick={this.calculateRandomNumber}>
-        {this.state.increment}
-      </button>
+      // <button onClick={this.calculateRandomNumber}>
+      //   {this.state.increment}
+      // </button>
+      <List />
     );
   }
 }
