@@ -71,7 +71,7 @@
   overflow-y: auto;
 }
 
-.container > div {
+/* .container > div {
   width: 100%;
   min-height: 100px;
   border-color: black;
@@ -96,4 +96,4 @@
 
 .meh-spalva {
   background-color: darkgoldenrod;
-}
+} */
