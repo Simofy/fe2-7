@@ -22,12 +22,17 @@ export default function Game() {
     <div>
       <button
         onClick={() => {
+          // #1
           // setPosition({
           //   ...position,
           //   x: position.x - 10
           // })
+          // #2
           // setTopPos(topPos - 10);
-          setPosition('y', -10)
+          // #3
+          // position.y -= 10;
+          // setUpdate(update + 1);
+          setPosition("y", -10);
         }}
       >
         Move UP
@@ -41,7 +46,7 @@ export default function Game() {
           // setTopPos(topPos + 10);
           // position.y += 10;
           // setUpdate(update + 1);
-          setPosition('y', 10)
+          setPosition("y", 10);
         }}
       >
         Move DOWN
@@ -55,7 +60,7 @@ export default function Game() {
           // setLeftPos(leftPos - 10);
           // position.x -= 10;
           // setUpdate(update + 1);
-          setPosition('x', -10)
+          setPosition("x", -10);
         }}
       >
         Move LEFT
@@ -69,7 +74,7 @@ export default function Game() {
           // setLeftPos(leftPos + 10);
           // position.x += 10;
           // setUpdate(update + 1);
-          setPosition('x', 10)
+          setPosition("x", 10);
         }}
       >
         Move RIGHT
