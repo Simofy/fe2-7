@@ -44,6 +44,39 @@ export default class SumComponent extends React.Component {
   }
 }
 
+
+
+function SumComponent1(props) {
+  this.props = props;
+  this.state = {
+    asdas: 10
+  }
+}
+
+SumComponent1.prototype.render = () => {
+  console.log(this)
+  // return (
+  //   // <button onClick={this.calculateRandomNumber}>
+  //   //   {this.state.increment}
+  //   // </button>
+  //   // <List />
+  // );
+}
+
+const a = new SumComponent1({
+  variable1: 10,
+  variable2: 10
+})
+
+
+a.render()
+
+
+
+
+
+
+
 function test(props) {
   console.log(this);
 }

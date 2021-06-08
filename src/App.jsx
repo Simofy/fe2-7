@@ -1,6 +1,10 @@
 import React from "react";
 import "./App.css";
+import Test1 from "./lesson-1/Test1";
 import Lesson4, { ColorChanger } from "./lesson-4";
+import Lesson5 from "./lesson-5";
+import FirstPropElement from "./lesson-5/homework/props/_1";
+import SecondPropElement from "./lesson-5/homework/props/_2";
 // import RandomNameGenerator from "./RandomNameGenerator";
 
 class App extends React.Component {
@@ -16,7 +20,8 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <div className="container">
-            <ColorChanger colorCount={4} />
+            {/* <Lesson5 /> */}
+            <SecondPropElement propValue={this.state.variable}  />
           </div>
           <button
             type="button"
