@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from "react";
 
 const CustomComponentC = (props) => {
-  const {count} = props;
-  return <div>{count}</div>
-}
+  const { count } = props;
+  const [value, setValue] = useState("");
+  const [array, setArray] = useState([])
+  console.log(value)
+  return (
+    <div>
+      <input
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+      />
+    </div>
+  );
+};
 
 const CustomComponentB = (props) => {
-  const {count} = props;
-  return <div>{count}</div>
-}
+  const { count } = props;
+  return <div>{count}</div>;
+};
 
 export default function Lesson6(props) {
   const { loading } = props;
@@ -38,9 +50,8 @@ export default function Lesson6(props) {
         // });
       }}
     >
-      <CustomComponentB count={`asd${counter}`}/>
-      <CustomComponentC count={`asd${counter}`}/>
-      
+      <CustomComponentB count={`asd${counter}`} />
+      <CustomComponentC count={`asd${counter}`} />
     </div>
   );
 }

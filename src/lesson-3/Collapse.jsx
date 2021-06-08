@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default class Collapse extends React.Component {
+class Collapse extends React.Component {
   state = {
     collapsed: false,
   };
@@ -26,4 +26,26 @@ export default class Collapse extends React.Component {
       </div>
     );
   }
+}
+
+export default function CollapseComponent() {
+  const [collapsed, setCollapsed] = useState(false);
+  function toggleState() {
+    setCollapsed(!collapsed);
+  }
+  return (
+    <div
+      style={{
+        width: "200px",
+        height: collapsed ? "0px" : "200px",
+        background: "#faf",
+        transition: 'height 200ms'
+      }}
+    >
+      <div></div>
+      <button onClick={() => toggleState()}>
+        {collapsed ? "Open" : "Close"}
+      </button>
+    </div>
+  );
 }

@@ -7,6 +7,8 @@ import FirstPropElement from "./lesson-5/homework/props/_1";
 import SecondPropElement from "./lesson-5/homework/props/_2";
 import FormComponents from "./lesson-6";
 import Game from "./lesson-6/Game";
+import Animation from "./lesson-6/Animation";
+import CollapseComponent from "./lesson-3/Collapse";
 // import RandomNameGenerator from "./RandomNameGenerator";
 
 class App extends React.Component {
@@ -22,9 +24,11 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <div className="container">
-            <FormComponents />
+            {/* <FormComponents /> */}
             {/* <SecondPropElement propValue={this.state.variable}  /> */}
-            {/* <Game /> */}
+            <Game />
+            {/* <CollapseComponent /> */}
+            {/* <Animation /> */}
           </div>
           <button
             type="button"
