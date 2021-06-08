@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from "react";
 
+const CustomComponentC = (props) => {
+  const {count} = props;
+  return <div>{count}</div>
+}
+
+const CustomComponentB = (props) => {
+  const {count} = props;
+  return <div>{count}</div>
+}
+
 export default function Lesson6(props) {
   const { loading } = props;
 
@@ -8,7 +18,6 @@ export default function Lesson6(props) {
   const [objectDummy, setObjectDummy] = useState({
     test1: 0,
   });
-
   // useEffect(() => {
   //   console.log(objectDummy)
   //   // setInterval(() => {
@@ -29,7 +38,9 @@ export default function Lesson6(props) {
         // });
       }}
     >
-      asd{counter}{objectDummy.alio}
+      <CustomComponentB count={`asd${counter}`}/>
+      <CustomComponentC count={`asd${counter}`}/>
+      
     </div>
   );
 }
