@@ -5,6 +5,7 @@ import Lesson4, { ColorChanger } from "./lesson-4";
 import Lesson5 from "./lesson-5";
 import FirstPropElement from "./lesson-5/homework/props/_1";
 import SecondPropElement from "./lesson-5/homework/props/_2";
+import FormComponents from "./lesson-6";
 // import RandomNameGenerator from "./RandomNameGenerator";
 
 class App extends React.Component {
@@ -21,7 +22,8 @@ class App extends React.Component {
         <header className="App-header">
           <div className="container">
             {/* <Lesson5 /> */}
-            <SecondPropElement propValue={this.state.variable}  />
+            {/* <SecondPropElement propValue={this.state.variable}  /> */}
+            <FormComponents />
           </div>
           <button
             type="button"
