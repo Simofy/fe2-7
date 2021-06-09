@@ -13,14 +13,14 @@ import Lesson7 from "./lesson-7";
 // import RandomNameGenerator from "./RandomNameGenerator";
 
 function AppComponent() {
-  const [variable, setVariable] = useState(0);
+  const [variable, setVariable] = useState('00000000');
   return (
     <div className="App">
       <header className="App-header">
         <div className="container">
           {/* <FormComponents /> */}
           {/* <SecondPropElement propValue={this.state.variable}  /> */}
-          <Lesson7 incrementFunction={setVariable}/>
+          <Lesson7 incrementFunction={setVariable} depth={1} />
           {/* <CollapseComponent /> */}
           {/* <Animation /> */}
         </div>
