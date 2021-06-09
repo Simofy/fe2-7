@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Test1 from "./lesson-1/Test1";
 import Lesson4, { ColorChanger } from "./lesson-4";
@@ -9,7 +9,33 @@ import FormComponents from "./lesson-6";
 import Game from "./lesson-6/Game";
 import Animation from "./lesson-6/Animation";
 import CollapseComponent from "./lesson-3/Collapse";
+import Lesson7 from "./lesson-7";
 // import RandomNameGenerator from "./RandomNameGenerator";
+
+function AppComponent() {
+  const [variable, setVariable] = useState(0);
+  return (
+    <div className="App">
+      <header className="App-header">
+        <div className="container">
+          {/* <FormComponents /> */}
+          {/* <SecondPropElement propValue={this.state.variable}  /> */}
+          <Lesson7 incrementFunction={setVariable}/>
+          {/* <CollapseComponent /> */}
+          {/* <Animation /> */}
+        </div>
+        <button
+          type="button"
+          onClick={() => {
+            setVariable(variable + 1);
+          }}
+        >
+          Change state {variable}
+        </button>
+      </header>
+    </div>
+  );
+}
 
 class App extends React.Component {
   state = {
@@ -26,7 +52,7 @@ class App extends React.Component {
           <div className="container">
             {/* <FormComponents /> */}
             {/* <SecondPropElement propValue={this.state.variable}  /> */}
-            <Game />
+            <Lesson7 />
             {/* <CollapseComponent /> */}
             {/* <Animation /> */}
           </div>
@@ -34,7 +60,7 @@ class App extends React.Component {
             type="button"
             onClick={() => {
               this.setState({
-                variable: this.state.variable + 1,
+                variable: 10,
               });
             }}
           >
@@ -46,4 +72,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default AppComponent;
