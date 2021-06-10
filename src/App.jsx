@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import Test1 from "./lesson-1/Test1";
+import Lesson2 from "./lesson-2";
 import Lesson4, { ColorChanger } from "./lesson-4";
 import Lesson5 from "./lesson-5";
 import FirstPropElement from "./lesson-5/homework/props/_1";
@@ -12,45 +14,71 @@ import CollapseComponent from "./lesson-3/Collapse";
 import Lesson7 from "./lesson-7";
 import Task1 from "./lesson-7/Task1";
 import Lesson8 from "./lesson-8";
+import BinaryIncrement from "./lesson-8/BinaryIncrement";
 
 // import RandomNameGenerator from "./RandomNameGenerator";
 
+const routes = {
+  lesson1: "/lesson-1",
+  lesson2: "/lesson-2",
+};
+
 function AppComponent() {
   const [variable, setVariable] = useState(0);
-  const [variableTest, setVariableTest] = useState(0)
-  
+  const [variableTest, setVariableTest] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="container">
-          {/* <FormComponents /> */}
-          {/* <SecondPropElement propValue={this.state.variable}  /> */}
-          {/* <CollapseComponent incrementFunction={setVariable} depth={1} /> */}
-          {/* <CustomButton onClick={} />
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <div className="container">
+            {/* <FormComponents /> */}
+            {/* <SecondPropElement propValue={this.state.variable}  /> */}
+            {/* <CollapseComponent incrementFunction={setVariable} depth={1} /> */}
+            {/* <CustomButton onClick={} />
           <Collapse open={}/> */}
-          {/* <Task1 /> */}
-          {/* <CollapseComponent /> */}
-          {/* <Animation /> */}
-          <Lesson8 count={variable} />
-        </div>
-        <button
-          type="button"
-          onClick={() => {
-            setVariable(variable + 1);
-          }}
-        >
-          Change state {variable}
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            setVariableTest(variableTest + 1);
-          }}
-        >
-          Change test state {variableTest}
-        </button>
-      </header>
-    </div>
+            {/* <Task1 /> */}
+            {/* <CollapseComponent /> */}
+            {/* <Animation /> */}
+            {/* <Lesson8 count={variable} /> */}
+            {/* <BinaryIncrement />
+             */}
+            <Switch>
+              <Route path={routes.lesson1}>
+                <Test1 />
+              </Route>
+              <Route path={routes.lesson2}>
+                <Lesson2 />
+              </Route>
+              <Route path="/" exact>
+                <h2>Landing page</h2>
+              </Route>
+              <Route path="/">
+                <h2>Page not found</h2>
+              </Route>
+            </Switch>
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              setVariable(variable + 1);
+            }}
+          >
+            Change state {variable}
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setVariableTest(variableTest + 1);
+            }}
+          >
+            Change test state {variableTest}
+          </button>
+          <Link to="/">home</Link>
+          <Link to={routes.lesson1}>lesson 1</Link>
+        </header>
+      </div>
+    </BrowserRouter>
   );
 }
 
@@ -90,7 +118,6 @@ class App extends React.Component {
 }
 
 export default AppComponent;
-
 
 // const data = [
 //   [222, 6, 30, 7, 1]
