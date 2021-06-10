@@ -24,7 +24,6 @@ export default class List extends React.Component {
           } = e;
 
           // const listValue = e.target.listValue.value;
-          
 
           console.log(listValue, listValue1, listValue2);
           this.setState({
@@ -35,6 +34,12 @@ export default class List extends React.Component {
         <input name="listValue" />
         <input name="listValue1" />
         <input name="listValue2" />
+        <input
+          name="listValue3"
+          onChange={(e) => {
+            console.log(e.target.value);
+          }}
+        />
         <button type="submit">Add</button>
         {this.state.list.map((item) => (
           <div>{item}</div>
