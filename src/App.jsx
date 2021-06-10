@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Test1 from "./lesson-1/Test1";
 import Lesson4, { ColorChanger } from "./lesson-4";
@@ -10,19 +10,28 @@ import Game from "./lesson-6/Game";
 import Animation from "./lesson-6/Animation";
 import CollapseComponent from "./lesson-3/Collapse";
 import Lesson7 from "./lesson-7";
+import Task1 from "./lesson-7/Task1";
+import Lesson8 from "./lesson-8";
+
 // import RandomNameGenerator from "./RandomNameGenerator";
 
 function AppComponent() {
-  const [variable, setVariable] = useState('00000000');
+  const [variable, setVariable] = useState(0);
+  const [variableTest, setVariableTest] = useState(0)
+  
   return (
     <div className="App">
       <header className="App-header">
         <div className="container">
           {/* <FormComponents /> */}
           {/* <SecondPropElement propValue={this.state.variable}  /> */}
-          <Lesson7 incrementFunction={setVariable} depth={1} />
+          {/* <CollapseComponent incrementFunction={setVariable} depth={1} /> */}
+          {/* <CustomButton onClick={} />
+          <Collapse open={}/> */}
+          {/* <Task1 /> */}
           {/* <CollapseComponent /> */}
           {/* <Animation /> */}
+          <Lesson8 count={variable} />
         </div>
         <button
           type="button"
@@ -31,6 +40,14 @@ function AppComponent() {
           }}
         >
           Change state {variable}
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            setVariableTest(variableTest + 1);
+          }}
+        >
+          Change test state {variableTest}
         </button>
       </header>
     </div>
@@ -73,3 +90,66 @@ class App extends React.Component {
 }
 
 export default AppComponent;
+
+
+// const data = [
+//   [222, 6, 30, 7, 1]
+//   // [121, 6, 15, 7, 25],
+//   // [102, 7, 1, 8, 14],
+//   // [236, 6, 30, 8, 31],
+//   // [141, 7, 31, 8, 10],
+//   // [111, 7, 1, 7, 20],
+//   // [128, 6, 2, 6, 3],
+// ];
+
+// useEffect(() => {
+//   const n = data.length;
+//   let finalStartDate = [0, 0];
+//   let finalEndDate = [0, 0];
+//   let finalStart = 0;
+//   let finalEnd = Infinity;
+//   let finalFlowers = [];
+//   for (let i = 0; i < n; i += 1) {
+//     const [id, monthStart, dayStart] = data[i];
+//     const start = monthStart * 100 + dayStart;
+//     const flowers = [];
+//     flowers.push(data[i]);
+//     for (let k = 0; k < n; k += 1) {
+//       const [
+//         idOther,
+//         monthStartOther,
+//         dayStartOther,
+//         monthEndOther,
+//         dayEndOther,
+//       ] = data[k];
+//       const startOther = monthStartOther * 100 + dayStartOther;
+//       const endOther = monthEndOther * 100 + dayEndOther;
+//       if (id !== idOther) {
+//         if (startOther <= start && start <= endOther) {
+//           flowers.push(data[k]);
+//         }
+//       }
+//     }
+//     if (finalFlowers.length < flowers.length) {
+//       finalFlowers = flowers;
+//     }
+//   }
+//   for (let i = 0; i < finalFlowers.length; i += 1) {
+//     const [, monthStart, dayStart, monthEnd, dayEnd] = finalFlowers[i];
+//     const start = monthStart * 100 + dayStart;
+//     const end = monthEnd * 100 + dayEnd;
+//     if (finalStart < start) {
+//       finalStart = start;
+//       finalStartDate = [monthStart, dayStart];
+//     }
+//     if (finalEnd > end) {
+//       finalEnd = end;
+//       finalEndDate = [monthEnd, dayEnd];
+//     }
+//   }
+//   console.log(`
+//     Total: ${finalFlowers.length},\n
+//     Start date: ${finalStartDate[0]} ${finalStartDate[1]},\n
+//     End date: ${finalEndDate[0]} ${finalEndDate[1]},\n
+//   `);
+// }, []);

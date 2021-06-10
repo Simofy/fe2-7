@@ -106,3 +106,15 @@
     transform: rotate(180deg) translateY(100px) perspective(200px);
   }
 }
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff8;
+}

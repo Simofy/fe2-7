@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 export default function Lesson7(props) {
   const { incrementFunction, depth } = props;
   const [testState, setTestState] = useState("");
-  console.log(incrementFunction);
+  // console.log(incrementFunction);
   useEffect(() => {
-    console.log("useEffect");
-    console.log(document.getElementById("test"));
+    // console.log("useEffect");
+    // console.log(document.getElementById("test"));
   }, []);
 
   return (
