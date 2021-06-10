@@ -1,8 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./App.css";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  Redirect,
+} from "react-router-dom";
 import Test1 from "./lesson-1/Test1";
 import Lesson2 from "./lesson-2";
+import List from "./lesson-3/List";
 import Lesson4, { ColorChanger } from "./lesson-4";
 import Lesson5 from "./lesson-5";
 import FirstPropElement from "./lesson-5/homework/props/_1";
@@ -23,10 +31,19 @@ const routes = {
   lesson2: "/lesson-2",
 };
 
+const PrivateRouter = () => {
+  const { user } = useContext();
+  if (!user) return <Redirect to="/login" />;
+  return (
+    <Route path={routes.lesson1}>
+      <Test1 />
+    </Route>
+  );
+};
+
 function AppComponent() {
   const [variable, setVariable] = useState(0);
   const [variableTest, setVariableTest] = useState(0);
-
   return (
     <BrowserRouter>
       <div className="App">
@@ -45,7 +62,7 @@ function AppComponent() {
              */}
             <Switch>
               <Route path={routes.lesson1}>
-                <Test1 />
+                <BinaryIncrement />
               </Route>
               <Route path={routes.lesson2}>
                 <Lesson2 />
