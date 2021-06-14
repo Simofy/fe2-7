@@ -23,13 +23,10 @@ import Lesson7 from "./lesson-7";
 import Task1 from "./lesson-7/Task1";
 import Lesson8 from "./lesson-8";
 import BinaryIncrement from "./lesson-8/BinaryIncrement";
+import Lesson9 from "./lesson-9";
+import { routes } from "./routes";
 
 // import RandomNameGenerator from "./RandomNameGenerator";
-
-const routes = {
-  lesson1: "/lesson-1",
-  lesson2: "/lesson-2",
-};
 
 const PrivateRouter = () => {
   const { user } = useContext();
@@ -44,6 +41,7 @@ const PrivateRouter = () => {
 function AppComponent() {
   const [variable, setVariable] = useState(0);
   const [variableTest, setVariableTest] = useState(0);
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -66,6 +64,9 @@ function AppComponent() {
               </Route>
               <Route path={routes.lesson2}>
                 <Lesson2 />
+              </Route>
+              <Route path={routes.lesson9}>
+                <Lesson9 />
               </Route>
               <Route path="/" exact>
                 <h2>Landing page</h2>
@@ -93,6 +94,7 @@ function AppComponent() {
           </button>
           <Link to="/">home</Link>
           <Link to={routes.lesson1}>lesson 1</Link>
+          <Link to={routes.lesson9}>lesson 9</Link>
         </header>
       </div>
     </BrowserRouter>
@@ -195,5 +197,55 @@ export default AppComponent;
 //     Total: ${finalFlowers.length},\n
 //     Start date: ${finalStartDate[0]} ${finalStartDate[1]},\n
 //     End date: ${finalEndDate[0]} ${finalEndDate[1]},\n
+//   `);
+// }, []);
+
+// const data = [
+//   [3, 9, 25, 9, 40, 19, 45, 20, 0],
+//   [6, 8, 30, 8, 48, 0, 0, 0, 0],
+//   [7, 9, 18, 9, 38, 18, 52, 19, 11],
+//   [10, 8, 48, 9, 3, 18, 45, 19, 0],
+//   [15, 8, 52, 9, 11, 17, 58, 18, 18],
+//   [30, 0, 0, 0, 0, 19, 2, 19, 20],
+// ];
+
+// useEffect(() => {
+//   let smallestTime = Infinity;
+//   let days = [];
+//   for (let i = 0; i < data.length; i += 1) {
+//     const [day, ...times] = data[i];
+//     let totalTime = 0;
+//     let hasBothTimes = true;
+//     for (let k = 0; k < times.length; k += 4) {
+//       const a1 = times[k];
+//       const a2 = times[k + 1];
+//       const b1 = times[k + 2];
+//       const b2 = times[k + 3];
+//       const toAdd = b1 * 60 + b2 - (a1 * 60 + a2);
+//       if (toAdd === 0) {
+//         hasBothTimes = false;
+//         continue;
+//       }
+//       totalTime += toAdd;
+//     }
+//     if (totalTime === 0 || !hasBothTimes) continue;
+//     if (smallestTime === totalTime) {
+//       days.push(day);
+//       continue;
+//     }
+//     if (smallestTime < totalTime) {
+//       continue;
+//     }
+//     if (smallestTime > totalTime) {
+//       smallestTime = totalTime;
+//       days = [day];
+//       continue;
+//     }
+//   }
+//   console.log(`
+//   Minimalus laikas\n
+//   ${smallestTime}\n
+//   Dienos\n
+//   ${days.join(" ")}
 //   `);
 // }, []);
