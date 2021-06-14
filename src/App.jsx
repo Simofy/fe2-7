@@ -24,6 +24,7 @@ import Task1 from "./lesson-7/Task1";
 import Lesson8 from "./lesson-8";
 import BinaryIncrement from "./lesson-8/BinaryIncrement";
 import Lesson9 from "./lesson-9";
+import SecondPart from "./lesson-9/SecondPart";
 import { routes } from "./routes";
 
 // import RandomNameGenerator from "./RandomNameGenerator";
@@ -62,6 +63,9 @@ function AppComponent() {
               <Route path={routes.lesson1}>
                 <BinaryIncrement />
               </Route>
+              <Route path="/lesson-9/second-part">
+                <SecondPart />
+              </Route>
               <Route path={routes.lesson2}>
                 <Lesson2 />
               </Route>
@@ -95,6 +99,7 @@ function AppComponent() {
           <Link to="/">home</Link>
           <Link to={routes.lesson1}>lesson 1</Link>
           <Link to={routes.lesson9}>lesson 9</Link>
+          <Link to={`/lesson-9/second-part`}>lesson 9 Use effect</Link>
         </header>
       </div>
     </BrowserRouter>
