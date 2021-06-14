@@ -26,6 +26,7 @@ import BinaryIncrement from "./lesson-8/BinaryIncrement";
 import Lesson9 from "./lesson-9";
 import SecondPart from "./lesson-9/SecondPart";
 import { routes } from "./routes";
+import ThirdPart from "./lesson-9/ThirdPart";
 
 // import RandomNameGenerator from "./RandomNameGenerator";
 
@@ -64,7 +65,7 @@ function AppComponent() {
                 <BinaryIncrement />
               </Route>
               <Route path="/lesson-9/second-part">
-                <SecondPart />
+                <ThirdPart />
               </Route>
               <Route path={routes.lesson2}>
                 <Lesson2 />

@@ -5,15 +5,27 @@ export default function SecondPart() {
   // incrementSize
   // incrementTime
   const [increment, setIncrement] = useState(0);
+  const [size, setSize] = useState(1);
+  const [time, setTime] = useState(1000);
   const [demoObject, setDemoObject] = useState(undefined);
+
   useEffect(() => {
-    setDemoObject({
-      alio: "test",
-      kill: () => {
-        console.log("killed");
-      },
-    });
-  }, []);
+    const interval = setInterval(() => {
+      setIncrement((oldValue) => oldValue + size);
+    }, time);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [size, time]);
+
+  // useEffect(() => {
+  //   setDemoObject({
+  //     alio: "test",
+  //     kill: () => {
+  //       console.log("killed");
+  //     },
+  //   });
+  // }, []);
 
   useEffect(() => {
     // demoObject clean up
@@ -30,5 +42,25 @@ export default function SecondPart() {
   //     clearInterval(interval);
   //   };
   // }, []);
-  return <div>{increment}</div>;
+  return (
+    <div>
+      <label>
+        Size
+        <input
+          value={size}
+          type="number"
+          onChange={(e) => setSize(Number(e.target.value))}
+        />
+      </label>
+      <label>
+        Time
+        <input
+          value={time}
+          type="number"
+          onChange={(e) => setTime(Number(e.target.value))}
+        />
+      </label>
+      {increment}
+    </div>
+  );
 }
