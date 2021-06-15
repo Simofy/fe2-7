@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import "./App.css";
+import React, { useContext, useEffect, useState } from 'react'
+import './App.css'
 import {
   BrowserRouter,
   Switch,
@@ -7,104 +7,116 @@ import {
   Link,
   useRouteMatch,
   Redirect,
-} from "react-router-dom";
-import Test1 from "./lesson-1/Test1";
-import Lesson2 from "./lesson-2";
-import List from "./lesson-3/List";
-import Lesson4, { ColorChanger } from "./lesson-4";
-import Lesson5 from "./lesson-5";
-import FirstPropElement from "./lesson-5/homework/props/_1";
-import SecondPropElement from "./lesson-5/homework/props/_2";
-import FormComponents from "./lesson-6";
-import Game from "./lesson-6/Game";
-import Animation from "./lesson-6/Animation";
-import CollapseComponent from "./lesson-3/Collapse";
-import Lesson7 from "./lesson-7";
-import Task1 from "./lesson-7/Task1";
-import Lesson8 from "./lesson-8";
-import BinaryIncrement from "./lesson-8/BinaryIncrement";
-import Lesson9 from "./lesson-9";
-import SecondPart from "./lesson-9/SecondPart";
-import { routes } from "./routes";
-import ThirdPart from "./lesson-9/ThirdPart";
+} from 'react-router-dom'
+import Test1 from './lesson-1/Test1'
+import Lesson2 from './lesson-2'
+import List from './lesson-3/List'
+import Lesson4, { ColorChanger } from './lesson-4'
+import Lesson5 from './lesson-5'
+import FirstPropElement from './lesson-5/homework/props/_1'
+import SecondPropElement from './lesson-5/homework/props/_2'
+import FormComponents from './lesson-6'
+import Game from './lesson-6/Game'
+import Animation from './lesson-6/Animation'
+import CollapseComponent from './lesson-3/Collapse'
+import Lesson7 from './lesson-7'
+import Task1 from './lesson-7/Task1'
+import Lesson8 from './lesson-8'
+import BinaryIncrement from './lesson-8/BinaryIncrement'
+import Lesson9 from './lesson-9'
+import SecondPart from './lesson-9/SecondPart'
+import { routes } from './routes'
+import ThirdPart from './lesson-9/ThirdPart'
+import Lesson10 from './lesson-10'
+import AppContext from './AppContext'
+import Table from './lesson-10/Table'
 
 // import RandomNameGenerator from "./RandomNameGenerator";
 
 const PrivateRouter = () => {
-  const { user } = useContext();
-  if (!user) return <Redirect to="/login" />;
+  const { user } = useContext()
+  if (!user) return <Redirect to="/login" />
   return (
     <Route path={routes.lesson1}>
       <Test1 />
     </Route>
-  );
-};
+  )
+}
 
 function AppComponent() {
-  const [variable, setVariable] = useState(0);
-  const [variableTest, setVariableTest] = useState(0);
+  const [variable, setVariable] = useState(0)
+  const [variableTest, setVariableTest] = useState(0)
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <header className="App-header">
-          <div className="container">
-            {/* <FormComponents /> */}
-            {/* <SecondPropElement propValue={this.state.variable}  /> */}
-            {/* <CollapseComponent incrementFunction={setVariable} depth={1} /> */}
-            {/* <CustomButton onClick={} />
+    <AppContext.Provider
+      value={{
+        increment: variable,
+        user: {},
+        setVariable,
+      }}
+    >
+      <BrowserRouter>
+        <div className="App">
+          <header className="App-header">
+            <div className="container">
+              {/* <FormComponents /> */}
+              {/* <SecondPropElement propValue={this.state.variable}  /> */}
+              {/* <CollapseComponent incrementFunction={setVariable} depth={1} /> */}
+              {/* <CustomButton onClick={} />
           <Collapse open={}/> */}
-            {/* <Task1 /> */}
-            {/* <CollapseComponent /> */}
-            {/* <Animation /> */}
-            {/* <Lesson8 count={variable} /> */}
-            {/* <BinaryIncrement />
-             */}
-            <Switch>
-              <Route path={routes.lesson1}>
-                <BinaryIncrement />
-              </Route>
-              <Route path="/lesson-9/second-part">
-                <ThirdPart />
-              </Route>
-              <Route path={routes.lesson2}>
-                <Lesson2 />
-              </Route>
-              <Route path={routes.lesson9}>
-                <Lesson9 />
-              </Route>
-              <Route path="/" exact>
-                <h2>Landing page</h2>
-              </Route>
-              <Route path="/">
-                <h2>Page not found</h2>
-              </Route>
-            </Switch>
-          </div>
-          <button
-            type="button"
-            onClick={() => {
-              setVariable(variable + 1);
-            }}
-          >
-            Change state {variable}
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              setVariableTest(variableTest + 1);
-            }}
-          >
-            Change test state {variableTest}
-          </button>
-          <Link to="/">home</Link>
-          <Link to={routes.lesson1}>lesson 1</Link>
-          <Link to={routes.lesson9}>lesson 9</Link>
-          <Link to={`/lesson-9/second-part`}>lesson 9 Use effect</Link>
-        </header>
-      </div>
-    </BrowserRouter>
-  );
+              {/* <Task1 /> */}
+              {/* <CollapseComponent /> */}
+              {/* <Animation /> */}
+              {/* <Lesson8 count={variable} /> */}
+              {/* <BinaryIncrement />
+               */}
+              <Switch>
+                <Route path={routes.lesson1}>
+                  <Table />
+                  <Lesson10 />
+                </Route>
+                <Route path="/lesson-9/second-part">
+                  <ThirdPart />
+                </Route>
+                <Route path={routes.lesson2}>
+                  <Lesson2 />
+                </Route>
+                <Route path={routes.lesson9}>
+                  <Lesson9 />
+                </Route>
+                <Route path="/" exact>
+                  <h2>Landing page</h2>
+                </Route>
+                <Route path="/">
+                  <h2>Page not found</h2>
+                </Route>
+              </Switch>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                setVariable(variable + 1)
+              }}
+            >
+              Change state {variable}
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setVariableTest(variableTest + 1)
+              }}
+            >
+              Change test state {variableTest}
+            </button>
+            <Link to="/">home</Link>
+            <Link to={routes.lesson1}>lesson 1</Link>
+            <Link to={routes.lesson9}>lesson 9</Link>
+            <Link to={`/lesson-9/second-part`}>lesson 9 Use effect</Link>
+          </header>
+        </div>
+      </BrowserRouter>
+    </AppContext.Provider>
+  )
 }
 
 class App extends React.Component {
@@ -113,7 +125,7 @@ class App extends React.Component {
     obj: {
       test1: 1,
     },
-  };
+  }
   render() {
     // console.log('App component', this.props);
     return (
@@ -131,18 +143,18 @@ class App extends React.Component {
             onClick={() => {
               this.setState({
                 variable: 10,
-              });
+              })
             }}
           >
             Change state {this.state.variable}
           </button>
         </header>
       </div>
-    );
+    )
   }
 }
 
-export default AppComponent;
+export default AppComponent
 
 // const data = [
 //   [222, 6, 30, 7, 1]
