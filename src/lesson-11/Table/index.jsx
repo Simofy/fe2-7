@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo, useState } from 'react'
-import './tableStyle.css'
+import './tableStyle.scss'
 
 const TableLesson11Context = createContext({
   list: [],
