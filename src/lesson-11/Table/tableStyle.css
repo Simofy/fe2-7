@@ -1,0 +1,24 @@
+.lesson-11-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lesson-11-edit-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #faf8;
+}
+
+.lesson-11-edit-page > form {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+}

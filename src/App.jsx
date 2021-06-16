@@ -32,6 +32,7 @@ import AppContext from './AppContext'
 import Table from './lesson-10/Table'
 import TableNew from './lesson-10/TableNew'
 import Lesson11 from './lesson-11'
+import TableLesson11 from './lesson-11/Table'
 
 // import RandomNameGenerator from "./RandomNameGenerator";
 
@@ -90,6 +91,9 @@ function AppComponent() {
                 <Route path={routes.lesson11}>
                   <Lesson11 />
                 </Route>
+                <Route path={routes.lesson11Table}>
+                  <TableLesson11 />
+                </Route>
                 <Route path="/collapse">
                   <CollapseComponent />
                 </Route>
@@ -120,6 +124,7 @@ function AppComponent() {
             <Link to="/">home</Link>
             <Link to={routes.lesson1}>lesson 1</Link>
             <Link to={routes.lesson9}>lesson 9</Link>
+            <Link to={routes.lesson11Table}>lesson 11 Table</Link>
             <Link to={`/lesson-9/second-part`}>lesson 9 Use effect</Link>
             <Link to="/collapse">Collapse</Link>
           </header>
