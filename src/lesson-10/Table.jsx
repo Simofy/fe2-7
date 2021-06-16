@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 
-const TableContext = createContext({
+export const TableContext = createContext({
   renderedData: null,
   setData: () => {},
 })

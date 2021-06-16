@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 
 class Collapse extends React.Component {
   state = {
@@ -28,11 +28,22 @@ class Collapse extends React.Component {
   }
 }
 
-export default function CollapseComponent() {
-  const [collapsed, setCollapsed] = useState(false)
-  function toggleState() {
-    setCollapsed(!collapsed)
-  }
+const collapseContext = createContext({
+  collapsed: false,
+  toggleState: () => {},
+})
+
+function Button() {
+  const { toggleState, collapsed } = useContext(collapseContext)
+  return (
+    <button onClick={() => toggleState()}>
+      {collapsed ? 'Open' : 'Close'}
+    </button>
+  )
+}
+
+function CollapsibleDiv() {
+  const { collapsed } = useContext(collapseContext)
   return (
     <div
       style={{
@@ -41,11 +52,24 @@ export default function CollapseComponent() {
         background: '#faf',
         transition: 'height 200ms',
       }}
+    ></div>
+  )
+}
+
+export default function CollapseComponent() {
+  const [collapsed, setCollapsed] = useState(false)
+  function toggleState() {
+    setCollapsed(!collapsed)
+  }
+  return (
+    <collapseContext.Provider
+      value={{
+        collapsed,
+        toggleState,
+      }}
     >
-      <div></div>
-      <button onClick={() => toggleState()}>
-        {collapsed ? 'Open' : 'Close'}
-      </button>
-    </div>
+      <CollapsibleDiv />
+      <Button />
+    </collapseContext.Provider>
   )
 }
