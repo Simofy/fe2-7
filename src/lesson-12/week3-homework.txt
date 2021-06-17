@@ -1,0 +1,33 @@
+Užduotis:
+
+Sukurti du puslapius
+
+Turi būti atvaizduota lentelė iš duomenų kuriuos gavote iš API*
+Kai vartotojas pascrolina žemyn jam parodo, kad loadina po lentele ir 
+gautus naujus duomenis atvaizduoja prie esamų. Kai vėl pascolins žemyn vėl pradės loadinti ir užloadinus
+atvaizduos papildomus duomenis, taip infinitely bus galima scrollinti.
+Šis concept vadinasi lazy loading, bet žiūrėti kaip logika implementuota internetuose negalima.
+
+Prie kiekvieno lentelės eilutės turėtu būti atvaizduotas "add" ar kitoks mygtukas,
+kurį paspaudus pridės prie kito sąrašo. Tą sąrašą reikia atvaizduoti antrame puslapyje.
+
+Antrame puslapyje galima ištrinti pasirinkimus.
+
+Pabandykite visą "favorite/history/bookmark/cart" lentelę
+kurią iš pagrindinės gavome išsaugoti localStorage.
+
+*API gali būti bet koks, kuris gražina array with objects
+Keli API:
+https://simutis.dev/api/generate-shopping-cart?limit=10
+
+Galite API savo apsirašyti su node ir express.js
+
+Lengvoji užduotis:
+
+Sukurti vieną puslapį, kuris yra išskaidytas į dvi dalis:
+
+Pirmoje dalyje yra keli mygtukai, kuriais galima pasirinkti theme.
+
+Antroje dalyje tą theme atvaizduokite, ar tai background pakeistas, ar font, blokas ...
+
+Refer to image.
