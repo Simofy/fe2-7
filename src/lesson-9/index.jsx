@@ -1,20 +1,20 @@
-import { useState } from "react";
-import { Route, Switch } from "react-router";
-import { Link } from "react-router-dom";
-import { routes } from "../routes";
-import Create from "./pages/Create";
-import Edit from "./pages/Edit";
-import Preview from "./pages/Preview";
-import { lesson9Routes } from "./routes";
+import { useState } from 'react'
+import { Route, Switch } from 'react-router'
+import { Link } from 'react-router-dom'
+import routes from '../routes'
+import Create from './pages/Create'
+import Edit from './pages/Edit'
+import Preview from './pages/Preview'
+import { lesson9Routes } from './routes'
 
 export default function Lesson9() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({})
   const handleUserEdit = (key, value) =>
     setUser((oldUser) => ({
       ...oldUser,
       [key]: value,
-    }));
-  console.log(user);
+    }))
+  console.log(user)
   return (
     <>
       <Link to={`${routes.lesson9}${lesson9Routes.home}`}>Home</Link>
@@ -35,5 +35,5 @@ export default function Lesson9() {
         </Route>
       </Switch>
     </>
-  );
+  )
 }

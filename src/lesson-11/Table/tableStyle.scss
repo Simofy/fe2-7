@@ -1,8 +1,11 @@
+$variable: red;
+
 .lesson-11-table {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  color: $variable;
 }
 
 .lesson-11-edit-page {
@@ -19,5 +22,32 @@
     width: 200px;
     height: 200px;
     background-color: white;
+  }
+}
+
+// button {
+// }
+
+// button > span {
+//   background-color: green;
+// }
+
+// button:hover > span {
+//   background-color: red;
+// }
+
+.default-style {
+  background-color: #dad;
+  font-size: 2rem;
+  color: #333;
+}
+
+button {
+  @extend .default-style;
+  > span {
+    background-color: green;
+  }
+  &:hover > span {
+    background-color: blue;
   }
 }
