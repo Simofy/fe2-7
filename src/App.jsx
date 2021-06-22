@@ -1,56 +1,75 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useCallback, useState } from 'react'
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import './App.css'
-import {
-  BrowserRouter,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  Redirect,
-} from 'react-router-dom'
-import Test1 from './lesson-1/Test1'
-import Lesson2 from './lesson-2'
-import List from './lesson-3/List'
-import Lesson4, { ColorChanger } from './lesson-4'
-import Lesson5 from './lesson-5'
-import FirstPropElement from './lesson-5/homework/props/_1'
-import SecondPropElement from './lesson-5/homework/props/_2'
-import FormComponents from './lesson-6'
-import Game from './lesson-6/Game'
-import Animation from './lesson-6/Animation'
-import CollapseComponent from './lesson-3/Collapse'
-import Lesson7 from './lesson-7'
-import Task1 from './lesson-7/Task1'
-import Lesson8 from './lesson-8'
-import BinaryIncrement from './lesson-8/BinaryIncrement'
-import Lesson9 from './lesson-9'
-import SecondPart from './lesson-9/SecondPart'
-import { routes } from './routes'
-import ThirdPart from './lesson-9/ThirdPart'
-import Lesson10 from './lesson-10'
 import AppContext from './AppContext'
-import Table from './lesson-10/Table'
+import Lesson10 from './lesson-10'
 import TableNew from './lesson-10/TableNew'
 import Lesson11 from './lesson-11'
 import TableLesson11 from './lesson-11/Table'
+import Lesson13 from './lesson-13'
+import Lesson14 from './lesson-14'
+import Task1 from './lesson-14/Task1'
+import Task2 from './lesson-14/Task2'
+import Task3 from './lesson-14/Task3'
+import Task4 from './lesson-14/Task4'
+import Lesson2 from './lesson-2'
+import CollapseComponent from './lesson-3/Collapse'
+import Lesson4 from './lesson-4'
+import Lesson5 from './lesson-5'
+import Lesson7 from './lesson-7'
+import Lesson8 from './lesson-8'
+import Lesson9 from './lesson-9'
+import ThirdPart from './lesson-9/ThirdPart'
+import routes from './routes'
 
-// import RandomNameGenerator from "./RandomNameGenerator";
+const lessonComponents = {
+  [routes.lesson14]: Lesson14,
+  [`${routes.lesson14}/task-4`]: Task4,
+  [`${routes.lesson14}/task-3`]: Task3,
+  [`${routes.lesson14}/task-2`]: Task2,
+  [`${routes.lesson14}/task-1`]: Task1,
+  [routes.lesson1]: TableNew,
+  [routes.lesson2]: Lesson2,
+  [routes.lesson4]: Lesson4,
+  [routes.lesson5]: Lesson5,
+  [routes.lesson7]: Lesson7,
+  [routes.lesson8]: Lesson8,
+  [routes.lesson9]: Lesson9,
+  ['/lesson-9/second-part']: ThirdPart,
+  [routes.lesson10]: Lesson10,
+  [routes.lesson11]: Lesson11,
+  [routes.lesson13]: Lesson13,
+  [routes.lesson11Table]: TableLesson11,
+  ['/collapse']: CollapseComponent,
+}
 
-const PrivateRouter = () => {
-  const { user } = useContext()
-  if (!user) return <Redirect to="/login" />
-  return (
-    <Route path={routes.lesson1}>
-      <Test1 />
-    </Route>
-  )
+const testArray = []
+
+for (let i = 0; i < 5; i += 1) {
+  testArray.push(Math.random())
+}
+
+function expensiveCalculation(array) {
+  let total = 0
+  array.forEach((value) => {
+    console.log(value)
+    return (total += value)
+  })
+  return Math.round(total)
 }
 
 function AppComponent() {
-  const [variable, setVariable] = useState(0)
+  const [variable, setVariable] = useState(() =>
+    expensiveCalculation(testArray)
+  )
   const [variableTest, setVariableTest] = useState(0)
 
+  const testCallback = useCallback(() => {
+    return variable
+  }, [variableTest])
+
   return (
+    // <Task2 />
     <AppContext.Provider
       value={{
         increment: variable,
@@ -62,41 +81,10 @@ function AppComponent() {
         <div className="App">
           <header className="App-header">
             <div className="container">
-              {/* <FormComponents /> */}
-              {/* <SecondPropElement propValue={this.state.variable}  /> */}
-              {/* <CollapseComponent incrementFunction={setVariable} depth={1} /> */}
-              {/* <CustomButton onClick={} />
-          <Collapse open={}/> */}
-              {/* <Task1 /> */}
-              {/* <CollapseComponent /> */}
-              {/* <Animation /> */}
-              {/* <Lesson8 count={variable} /> */}
-              {/* <BinaryIncrement />
-               */}
               <Switch>
-                <Route path={routes.lesson1}>
-                  {/* <Table />
-                  <Lesson10 /> */}
-                  <TableNew />
-                </Route>
-                <Route path="/lesson-9/second-part">
-                  <ThirdPart />
-                </Route>
-                <Route path={routes.lesson2}>
-                  <Lesson2 />
-                </Route>
-                <Route path={routes.lesson9}>
-                  <Lesson9 />
-                </Route>
-                <Route path={routes.lesson11}>
-                  <Lesson11 />
-                </Route>
-                <Route path={routes.lesson11Table}>
-                  <TableLesson11 />
-                </Route>
-                <Route path="/collapse">
-                  <CollapseComponent />
-                </Route>
+                {Object.entries(lessonComponents).map(([route, component]) => (
+                  <Route key={route} path={route} component={component} />
+                ))}
                 <Route path="/" exact>
                   <h2>Landing page</h2>
                 </Route>
@@ -108,6 +96,7 @@ function AppComponent() {
             <button
               type="button"
               onClick={() => {
+                console.log(testCallback())
                 setVariable(variable + 1)
               }}
             >
@@ -119,14 +108,14 @@ function AppComponent() {
                 setVariableTest(variableTest + 1)
               }}
             >
-              Change test state {variableTest}
+              <span>Change test state {variableTest}</span>
             </button>
             <Link to="/">home</Link>
-            <Link to={routes.lesson1}>lesson 1</Link>
-            <Link to={routes.lesson9}>lesson 9</Link>
-            <Link to={routes.lesson11Table}>lesson 11 Table</Link>
-            <Link to={`/lesson-9/second-part`}>lesson 9 Use effect</Link>
-            <Link to="/collapse">Collapse</Link>
+            {Object.keys(lessonComponents).map((route) => (
+              <Link key={route} to={route}>
+                {route}
+              </Link>
+            ))}
           </header>
         </div>
       </BrowserRouter>
@@ -134,151 +123,4 @@ function AppComponent() {
   )
 }
 
-class App extends React.Component {
-  state = {
-    variable: 0,
-    obj: {
-      test1: 1,
-    },
-  }
-  render() {
-    // console.log('App component', this.props);
-    return (
-      <div className="App">
-        <header className="App-header">
-          <div className="container">
-            {/* <FormComponents /> */}
-            {/* <SecondPropElement propValue={this.state.variable}  /> */}
-            <Lesson7 />
-            {/* <CollapseComponent /> */}
-            {/* <Animation /> */}
-          </div>
-          <button
-            type="button"
-            onClick={() => {
-              this.setState({
-                variable: 10,
-              })
-            }}
-          >
-            Change state {this.state.variable}
-          </button>
-        </header>
-      </div>
-    )
-  }
-}
-
 export default AppComponent
-
-// const data = [
-//   [222, 6, 30, 7, 1]
-//   // [121, 6, 15, 7, 25],
-//   // [102, 7, 1, 8, 14],
-//   // [236, 6, 30, 8, 31],
-//   // [141, 7, 31, 8, 10],
-//   // [111, 7, 1, 7, 20],
-//   // [128, 6, 2, 6, 3],
-// ];
-
-// useEffect(() => {
-//   const n = data.length;
-//   let finalStartDate = [0, 0];
-//   let finalEndDate = [0, 0];
-//   let finalStart = 0;
-//   let finalEnd = Infinity;
-//   let finalFlowers = [];
-//   for (let i = 0; i < n; i += 1) {
-//     const [id, monthStart, dayStart] = data[i];
-//     const start = monthStart * 100 + dayStart;
-//     const flowers = [];
-//     flowers.push(data[i]);
-//     for (let k = 0; k < n; k += 1) {
-//       const [
-//         idOther,
-//         monthStartOther,
-//         dayStartOther,
-//         monthEndOther,
-//         dayEndOther,
-//       ] = data[k];
-//       const startOther = monthStartOther * 100 + dayStartOther;
-//       const endOther = monthEndOther * 100 + dayEndOther;
-//       if (id !== idOther) {
-//         if (startOther <= start && start <= endOther) {
-//           flowers.push(data[k]);
-//         }
-//       }
-//     }
-//     if (finalFlowers.length < flowers.length) {
-//       finalFlowers = flowers;
-//     }
-//   }
-//   for (let i = 0; i < finalFlowers.length; i += 1) {
-//     const [, monthStart, dayStart, monthEnd, dayEnd] = finalFlowers[i];
-//     const start = monthStart * 100 + dayStart;
-//     const end = monthEnd * 100 + dayEnd;
-//     if (finalStart < start) {
-//       finalStart = start;
-//       finalStartDate = [monthStart, dayStart];
-//     }
-//     if (finalEnd > end) {
-//       finalEnd = end;
-//       finalEndDate = [monthEnd, dayEnd];
-//     }
-//   }
-//   console.log(`
-//     Total: ${finalFlowers.length},\n
-//     Start date: ${finalStartDate[0]} ${finalStartDate[1]},\n
-//     End date: ${finalEndDate[0]} ${finalEndDate[1]},\n
-//   `);
-// }, []);
-
-// const data = [
-//   [3, 9, 25, 9, 40, 19, 45, 20, 0],
-//   [6, 8, 30, 8, 48, 0, 0, 0, 0],
-//   [7, 9, 18, 9, 38, 18, 52, 19, 11],
-//   [10, 8, 48, 9, 3, 18, 45, 19, 0],
-//   [15, 8, 52, 9, 11, 17, 58, 18, 18],
-//   [30, 0, 0, 0, 0, 19, 2, 19, 20],
-// ];
-
-// useEffect(() => {
-//   let smallestTime = Infinity;
-//   let days = [];
-//   for (let i = 0; i < data.length; i += 1) {
-//     const [day, ...times] = data[i];
-//     let totalTime = 0;
-//     let hasBothTimes = true;
-//     for (let k = 0; k < times.length; k += 4) {
-//       const a1 = times[k];
-//       const a2 = times[k + 1];
-//       const b1 = times[k + 2];
-//       const b2 = times[k + 3];
-//       const toAdd = b1 * 60 + b2 - (a1 * 60 + a2);
-//       if (toAdd === 0) {
-//         hasBothTimes = false;
-//         continue;
-//       }
-//       totalTime += toAdd;
-//     }
-//     if (totalTime === 0 || !hasBothTimes) continue;
-//     if (smallestTime === totalTime) {
-//       days.push(day);
-//       continue;
-//     }
-//     if (smallestTime < totalTime) {
-//       continue;
-//     }
-//     if (smallestTime > totalTime) {
-//       smallestTime = totalTime;
-//       days = [day];
-//       continue;
-//     }
-//   }
-//   console.log(`
-//   Minimalus laikas\n
-//   ${smallestTime}\n
-//   Dienos\n
-//   ${days.join(" ")}
-//   `);
-// }, []);

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import Item from './Item'
 import Items from './Items'
+import PreviewItem from './PreviewItem'
 import TaskContext from './TaskContext'
 
 export default function Task1() {
@@ -108,6 +109,9 @@ export default function Task1() {
           </Route>
           <Route exact path="/liked">
             <Items type="liked" />
+          </Route>
+          <Route exact path="/item/:itemId/:test">
+            <PreviewItem />
           </Route>
           <Route exact path="/"></Route>
         </Switch>

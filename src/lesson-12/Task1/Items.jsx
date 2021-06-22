@@ -29,6 +29,7 @@ export default function Items({ type }) {
         onClick={() => handleLiked(id, handleLikedType)}
         name={name}
         type={itemType}
+        id={id}
         price={price}
       />
     ))
