@@ -1,0 +1,7 @@
+Hard task, this task can be skipped.
+
+Split rectangle on click to 4 other rectangles.
+Same applies to created rectangles.
+Recursive approach should be easiest.
+
+This effect called binary space partitioning.

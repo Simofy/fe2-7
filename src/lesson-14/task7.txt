@@ -1,0 +1,3 @@
+Animate using sprite sheet.
+Use onMouseEnter/onMouseLeave ... to get desired sprite state.
+Use background-position trick to move sprite sheet.

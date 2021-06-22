@@ -1,0 +1,3 @@
+Create grid NxN of characters/numbers/colors
+where every grid element
+changes at random interval
