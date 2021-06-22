@@ -1,0 +1,1 @@
+Swap n images using React. Bonus: create transitions between images. n >= 3

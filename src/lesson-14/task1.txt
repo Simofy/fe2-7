@@ -1,0 +1,1 @@
+Create n inputs to change components style attributes. n >= 2
