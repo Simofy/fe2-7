@@ -1,0 +1,25 @@
+.task-7-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  & > div {
+    background-image: url(./cat.png);
+    width: 300px;
+    height: 300px;
+  }
+  .cat-default {
+    background-position: 0 0;
+  }
+  .cat-click {
+    background-position: 900px 0;
+  }
+  .cat-hover {
+    background-position: 600px 0;
+  }
+  .cat-idle {
+    background-position: 300px 0;
+  }
+}
