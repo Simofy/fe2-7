@@ -1,0 +1,8 @@
+Create messaging app using React and context.
+
+Data from api comes in this order: response contains top 10 most recent items in descending order.
+
+GET https://simutis.dev/api/messages
+POST https://simutis.dev/api/messages with 'Content-Type': 'application/json' and body stringified JSON object 
+Example: {"message":"messageValue","name":"userName"}
+Code example in plain JS which uses api: https://github.com/Simofy/PT2-front-end/blob/master/paskaita5/keyframes.html#L130

@@ -1,0 +1,15 @@
+Using chosen API from https://github.com/public-apis/public-apis create React app with context.
+
+App should provide API data that is transformed in some way.
+
+Depending on API create dynamic sub routes for chosen item from the provided list.
+
+Preliminary data flow:
+API request -> data transformation (removing keys/counting/linking with other objects) -> providing data -> consuming data -> displaying data
+                                                                                                                -> additional dynamic route for selected item
+
+For dynamic routes refer to: https://reactrouter.com/web/api/Hooks/useparams
+For local code implementation: https://github.com/Simofy/fe2-7/blob/main/src/lesson-12/Task1/PreviewItem.jsx
+
+
+Cool visual API https://pixelencounter.com/api

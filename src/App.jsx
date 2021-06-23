@@ -12,6 +12,10 @@ import Task1 from './lesson-14/Task1'
 import Task2 from './lesson-14/Task2'
 import Task3 from './lesson-14/Task3'
 import Task4 from './lesson-14/Task4'
+import Task5 from './lesson-14/Task5'
+import Task6 from './lesson-14/Task6'
+import Task7 from './lesson-14/Task7'
+import Task10 from './lesson-15/task10'
 import Lesson2 from './lesson-2'
 import CollapseComponent from './lesson-3/Collapse'
 import Lesson4 from './lesson-4'
@@ -23,11 +27,15 @@ import ThirdPart from './lesson-9/ThirdPart'
 import routes from './routes'
 
 const lessonComponents = {
-  [routes.lesson14]: Lesson14,
+  [`${routes.lesson15}/task-10`]: Task10,
+  [`${routes.lesson14}/task-7`]: Task7,
+  [`${routes.lesson14}/task-6`]: Task6,
+  [`${routes.lesson14}/task-5`]: Task5,
   [`${routes.lesson14}/task-4`]: Task4,
   [`${routes.lesson14}/task-3`]: Task3,
   [`${routes.lesson14}/task-2`]: Task2,
   [`${routes.lesson14}/task-1`]: Task1,
+  [routes.lesson14]: Lesson14,
   [routes.lesson1]: TableNew,
   [routes.lesson2]: Lesson2,
   [routes.lesson4]: Lesson4,
