@@ -1,0 +1,73 @@
+.task-8-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  overflow: hidden;
+  align-items: stretch;
+  form {
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: stretch;
+    > * {
+      flex: 1;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      font-size: 12px;
+      input {
+        flex: 1;
+      }
+    }
+  }
+  .messages-container {
+    flex: 1;
+    overflow-y: auto;
+    width: 100%;
+    .message {
+      display: flex;
+      position: relative;
+      flex-direction: row;
+      align-items: stretch;
+      justify-content: stretch;
+      min-height: 84px;
+      // flex: 1 auto;
+      flex: 1 1 auto;
+      // height: auto;
+
+      // flex: 1 100%;
+      border-top: solid 2px #333;
+
+      .message-name {
+        text-align: center;
+        min-width: 100px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        flex: 0;
+        max-width: 100px;
+        font-weight: bold;
+        border-right: 1px solid #333;
+        padding: 4px;
+      }
+      .message-message {
+        padding-bottom: 16px;
+        padding-left: 4px;
+        padding-right: 4px;
+        text-align: left;
+      }
+      .message-created {
+        position: absolute;
+        right: 4px;
+        bottom: 4px;
+        height: 12px;
+        font-size: 12px;
+        line-height: 1;
+      }
+    }
+  }
+}
