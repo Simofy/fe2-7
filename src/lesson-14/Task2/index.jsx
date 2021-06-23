@@ -4,17 +4,13 @@ import cat2 from './cat2.jpg'
 import cat3 from './cat3.jpg'
 import './Task2.scss'
 
-const cats = {
-  cat1,
-  cat2,
-  cat3,
-}
+const catsArray = [cat1, cat2, cat3]
 
 export default function Task2() {
   const [cat, setCat] = useState(1)
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCat((oldCat) => ((oldCat + 1) % 3) + 1)
+      setCat((oldCat) => (oldCat + 1) % catsArray.length)
     }, 1000)
     return () => {
       clearInterval(intervalId)
@@ -23,7 +19,7 @@ export default function Task2() {
   return (
     <div>
       <div className="task-2-container">
-        <img src={cats[`cat${cat}`]} />
+        <img src={catsArray[cat]} alt="" />
       </div>
     </div>
   )
