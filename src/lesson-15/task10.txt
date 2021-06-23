@@ -1,1 +1,4 @@
 Create simple React app with context. One page contains form with save button and second page displays that information.
+
+Create Context using createContext and pass static data to Context.Provider value prop,
+using useContext(Context) get that data, console.log or display in html tag
