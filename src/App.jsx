@@ -17,6 +17,7 @@ import Task6 from './lesson-14/Task6'
 import Task7 from './lesson-14/Task7'
 import Task10 from './lesson-15/task10'
 import Task8 from './lesson-15/Task8'
+import Lesson16 from './lesson-16'
 import Lesson2 from './lesson-2'
 import CollapseComponent from './lesson-3/Collapse'
 import Lesson4 from './lesson-4'
@@ -28,6 +29,7 @@ import ThirdPart from './lesson-9/ThirdPart'
 import routes from './routes'
 
 const lessonComponents = {
+  [routes.lesson16]: Lesson16,
   [`${routes.lesson15}/task-10`]: Task10,
   [`${routes.lesson15}/task-8`]: Task8,
   [`${routes.lesson14}/task-7`]: Task7,

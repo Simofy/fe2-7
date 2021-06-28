@@ -20,7 +20,6 @@ import './Task8.scss'
 
 const MessagesContext = createContext({
   messages: [],
-  postMessage() {},
   username: '',
   setUsername() {},
 })
