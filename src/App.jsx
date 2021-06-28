@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import './App.css'
 import AppContext from './AppContext'
@@ -18,6 +18,8 @@ import Task7 from './lesson-14/Task7'
 import Task10 from './lesson-15/task10'
 import Task8 from './lesson-15/Task8'
 import Lesson16 from './lesson-16'
+import Lesson16Collapse from './lesson-16/Collapse'
+import CustomHooks from './lesson-16/CustomHooks'
 import Lesson2 from './lesson-2'
 import CollapseComponent from './lesson-3/Collapse'
 import Lesson4 from './lesson-4'
@@ -29,6 +31,8 @@ import ThirdPart from './lesson-9/ThirdPart'
 import routes from './routes'
 
 const lessonComponents = {
+  [`${routes.lesson16}/custom-hooks`]: CustomHooks,
+  [`${routes.lesson16}/collapse`]: Lesson16Collapse,
   [routes.lesson16]: Lesson16,
   [`${routes.lesson15}/task-10`]: Task10,
   [`${routes.lesson15}/task-8`]: Task8,
@@ -80,12 +84,14 @@ function AppComponent() {
     return variable
   }, [variableTest])
 
+  const user = useMemo(() => ({}), [])
+
   return (
     // <Task2 />
     <AppContext.Provider
       value={{
         increment: variable,
-        user: {},
+        user,
         setVariable,
       }}
     >
