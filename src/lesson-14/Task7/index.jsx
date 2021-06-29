@@ -15,7 +15,7 @@ const catStateClass = {
   [catState.default]: 'cat-default',
 }
 
-export default function Task7() {
+export default function Task7({ onClick }) {
   const [prevState, setPrevState] = useState(catState.default)
   const [state, setState] = useState(catState.default)
 
@@ -31,6 +31,7 @@ export default function Task7() {
       onMouseDown={() => {
         setPrevState(state)
         setState(catState.click)
+        onClick && onClick()
       }}
       onMouseUp={() => setState(prevState)}
       onMouseEnter={() => setState(catState.hover)}
