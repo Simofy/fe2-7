@@ -21,6 +21,7 @@ import Lesson16 from './lesson-16'
 import Lesson16Collapse from './lesson-16/Collapse'
 import CustomHooks from './lesson-16/CustomHooks'
 import Lesson17 from './lesson-17'
+import Task10Converted from './lesson-17/Task10Converted'
 import Lesson2 from './lesson-2'
 import CollapseComponent from './lesson-3/Collapse'
 import Lesson4 from './lesson-4'
@@ -32,6 +33,7 @@ import ThirdPart from './lesson-9/ThirdPart'
 import routes from './routes'
 
 const lessonComponents = {
+  [`${routes.lesson17}/task10`]: Task10Converted,
   [routes.lesson17]: Lesson17,
   [`${routes.lesson16}/custom-hooks`]: CustomHooks,
   [`${routes.lesson16}/collapse`]: Lesson16Collapse,
