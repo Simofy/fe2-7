@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import './App.css'
 import AppContext from './AppContext'
@@ -31,8 +31,11 @@ import Lesson8 from './lesson-8'
 import Lesson9 from './lesson-9'
 import ThirdPart from './lesson-9/ThirdPart'
 import routes from './routes'
+import './app.scss'
+import Lesson18 from './lesson-18'
 
 const lessonComponents = {
+  [routes.lesson18]: Lesson18,
   [`${routes.lesson17}/task10`]: Task10Converted,
   [routes.lesson17]: Lesson17,
   [`${routes.lesson16}/custom-hooks`]: CustomHooks,
