@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useCallback, useEffect, useMemo } from 'react'
 import { Table } from 'react-bootstrap'
 import { Provider, useDispatch, useSelector } from 'react-redux'
 import { actions } from './actions'
@@ -17,6 +17,14 @@ function Element({ item, action, idKey, actionType }) {
       <td>
         <button type="button" onClick={() => dispatch(action(id))}>
           {actionType ? 'Add' : 'Remove'}
+        </button>
+      </td>
+      <td>
+        <button
+          type="button"
+          onClick={() => dispatch(actions.showModal(item.id))}
+        >
+          Show more
         </button>
       </td>
     </tr>
@@ -46,10 +54,48 @@ function TableWrapper({ selector, action, actionType, idKey }) {
           <th>Price</th>
           <th>Vegan</th>
           <th>Action</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>{generateList}</tbody>
     </Table>
+  )
+}
+
+function Modal() {
+  const dispatch = useDispatch()
+  const closeModal = useCallback(() => dispatch(actions.hideModal()), [])
+  const item = useSelector(({ list, selectedItem }) =>
+    list.find(({ id }) => id === selectedItem)
+  )
+  if (!item) return null
+  const { name, animal, color, price, vegan } = item
+
+  return (
+    <div className="lesson-18-modal" onClick={closeModal}>
+      <div
+        style={{
+          backgroundColor: color,
+        }}
+        onClick={(e) => {
+          e.stopPropagation()
+        }}
+      >
+        <h3>Name</h3>
+        <div>{name}</div>
+        <h3>Animal</h3>
+        <div>{animal}</div>
+        <h3>Color</h3>
+        <div>{color}</div>
+        <h3>Price</h3>
+        <div>{price}</div>
+        <h3>Vegan</h3>
+        <div>{vegan ? 'Vegan' : '-'}</div>
+        <button type="button" onClick={closeModal}>
+          Close
+        </button>
+      </div>
+    </div>
   )
 }
 
@@ -60,6 +106,7 @@ function Lesson18() {
       .then((response) => response.json())
       .then((data) => dispatch(actions.setListAction(data)))
   }, [])
+  const selectedItem = useSelector(({ selectedItem }) => !!selectedItem)
   return (
     <div className="lesson18-container">
       <TableWrapper
@@ -74,6 +121,7 @@ function Lesson18() {
         actionType={false}
         idKey={'customId'}
       />
+      {selectedItem ? <Modal /> : null}
     </div>
   )
 }

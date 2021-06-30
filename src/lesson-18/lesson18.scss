@@ -1,5 +1,5 @@
 body {
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .lesson18-container {
@@ -10,4 +10,22 @@ body {
   bottom: 0;
   background: white;
   overflow: auto;
+}
+
+.lesson-18-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #4448;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > div {
+    width: 40%;
+    height: 40%;
+    border-radius: 16px;
+    background-color: white;
+  }
 }

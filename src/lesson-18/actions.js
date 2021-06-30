@@ -10,13 +10,23 @@ const addToCartAction = (payload = '') => ({
   payload,
 })
 
-const removeFromCartAction = (payload = '') => ({
+const removeFromCartAction = () => ({
   type: types.REMOVE_FROM_CART,
+})
+
+const showModal = (payload) => ({
+  type: types.SHOW_MODAL,
   payload,
+})
+
+const hideModal = () => ({
+  type: types.HIDE_MODAL,
 })
 
 export const actions = {
   setListAction,
   addToCartAction,
   removeFromCartAction,
+  showModal,
+  hideModal,
 }
