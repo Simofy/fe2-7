@@ -57,8 +57,6 @@ const test1 = { ...test }
 
 test1.number = 10
 
-test1 === test
-
 function EffectComponent({ value }) {
   useEffect(() => {
     // fetch
