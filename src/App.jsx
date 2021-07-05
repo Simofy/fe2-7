@@ -33,8 +33,10 @@ import ThirdPart from './lesson-9/ThirdPart'
 import routes from './routes'
 import './app.scss'
 import Lesson18 from './lesson-18'
+import Lesson20 from './lesson-20/Lesson20'
 
 const lessonComponents = {
+  [routes.lesson20]: Lesson20,
   [routes.lesson18]: Lesson18,
   [`${routes.lesson17}/task10`]: Task10Converted,
   [routes.lesson17]: Lesson17,
@@ -58,12 +60,12 @@ const lessonComponents = {
   [routes.lesson7]: Lesson7,
   [routes.lesson8]: Lesson8,
   [routes.lesson9]: Lesson9,
-  ['/lesson-9/second-part']: ThirdPart,
+  '/lesson-9/second-part': ThirdPart,
   [routes.lesson10]: Lesson10,
   [routes.lesson11]: Lesson11,
   [routes.lesson13]: Lesson13,
   [routes.lesson11Table]: TableLesson11,
-  ['/collapse']: CollapseComponent,
+  '/collapse': CollapseComponent,
 }
 
 const testArray = []
