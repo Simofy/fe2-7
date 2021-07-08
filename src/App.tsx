@@ -118,7 +118,12 @@ function AppComponent() {
                     incrementCount={variable}
                     loading
                     onClick={() => {}}
-                    userId=""
+                    favoriteMovies={[]}
+                    array={[]}
+                    testObject={{
+                      test: 10,
+                      testNumber: 10,
+                    }}
                   />
                 </Route>
                 {Object.entries(lessonComponents).map(([route, component]) => (
