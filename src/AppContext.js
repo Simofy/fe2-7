@@ -2,7 +2,8 @@ import { createContext } from 'react'
 
 const AppContext = createContext({
   increment: 0,
-  user: null,
+  user: {},
+  setVariable: () => {},
 })
 
 export default AppContext

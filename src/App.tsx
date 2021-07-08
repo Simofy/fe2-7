@@ -40,7 +40,6 @@ import Lesson22 from './lesson-22'
 
 const lessonComponents = {
   [routes.game]: Game,
-  [routes.lesson22]: Lesson22,
   [routes.lesson21]: Lesson21,
   [routes.lesson20]: Lesson20,
   [routes.lesson18]: Lesson18,
@@ -74,7 +73,7 @@ const lessonComponents = {
   '/collapse': CollapseComponent,
 }
 
-const testArray = []
+const testArray = [] as number[]
 
 for (let i = 0; i < 5; i += 1) {
   testArray.push(Math.random())
@@ -83,7 +82,6 @@ for (let i = 0; i < 5; i += 1) {
 function expensiveCalculation(array) {
   let total = 0
   array.forEach((value) => {
-    console.log(value)
     return (total += value)
   })
   return Math.round(total)
@@ -107,7 +105,7 @@ function AppComponent() {
       value={{
         increment: variable,
         user,
-        setVariable,
+        setVariable: setVariable as any,
       }}
     >
       <BrowserRouter>
@@ -115,6 +113,14 @@ function AppComponent() {
           <header className="App-header">
             <div className="container">
               <Switch>
+                <Route path={routes.lesson22}>
+                  <Lesson22
+                    incrementCount={variable}
+                    loading
+                    onClick={() => {}}
+                    userId=""
+                  />
+                </Route>
                 {Object.entries(lessonComponents).map(([route, component]) => (
                   <Route key={route} path={route} component={component} />
                 ))}
@@ -129,7 +135,6 @@ function AppComponent() {
             <button
               type="button"
               onClick={() => {
-                console.log(testCallback())
                 setVariable(variable + 1)
               }}
             >
@@ -144,6 +149,7 @@ function AppComponent() {
               <span>Change test state {variableTest}</span>
             </button>
             <Link to="/">home</Link>
+            <Link to={routes.lesson22}>{routes.lesson22}</Link>
             {Object.keys(lessonComponents).map((route) => (
               <Link key={route} to={route}>
                 {route}
