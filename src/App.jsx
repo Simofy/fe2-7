@@ -34,8 +34,14 @@ import routes from './routes'
 import './app.scss'
 import Lesson18 from './lesson-18'
 import Lesson20 from './lesson-20/Lesson20'
+import Lesson21 from './lesson-21'
+import Game from './lesson-20/game'
+import Lesson22 from './lesson-22'
 
 const lessonComponents = {
+  [routes.game]: Game,
+  [routes.lesson22]: Lesson22,
+  [routes.lesson21]: Lesson21,
   [routes.lesson20]: Lesson20,
   [routes.lesson18]: Lesson18,
   [`${routes.lesson17}/task10`]: Task10Converted,

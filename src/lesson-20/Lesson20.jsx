@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useCallback } from 'react'
 import { Provider, useDispatch, useSelector } from 'react-redux'
 import { combineReducers, createStore } from 'redux'
@@ -54,8 +55,6 @@ const rootReducer = combineReducers({
   }),
 })
 
-const store = createStore(rootReducer)
-
 function App() {
   const { left, right, test } = useSelector(({ left, right, test }) => ({
     left,
@@ -81,6 +80,8 @@ function App() {
     </div>
   )
 }
+
+const store = createStore(rootReducer)
 
 export default function Lesson20() {
   return (
