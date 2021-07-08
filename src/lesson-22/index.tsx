@@ -2,7 +2,8 @@ type Lesson22Type = {
   onClick: () => void
   loading: boolean
   incrementCount: number
-  userId: string
+  // ? means its not required
+  userId?: string
 }
 
 export default function Lesson22(props: Lesson22Type) {
